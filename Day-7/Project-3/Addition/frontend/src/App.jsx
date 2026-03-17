@@ -29,44 +29,49 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Addition Calculator</h1>
-      
-      <div>
-        <input
-          type="number"
-          placeholder="First number"
-          value={num1}
-          onChange={(e) => setNum1(e.target.value)}
-        />
-        <span> + </span>
-        <input
-          type="number"
-          placeholder="Second number"
-          value={num2}
-          onChange={(e) => setNum2(e.target.value)}
-        />
-        <button 
-          onClick={handleAddition}
-          disabled={loading}
-        >
-          {loading ? "Calculating..." : "Calculate"}
-        </button>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+      <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+        <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">Addition Calculator</h1>
+        
+        <div className="space-y-4">
+          <input
+            type="number"
+            placeholder="First number"
+            value={num1}
+            onChange={(e) => setNum1(e.target.value)}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+          <div className="text-center text-2xl font-bold text-gray-600">+</div>
+          <input
+            type="number"
+            placeholder="Second number"
+            value={num2}
+            onChange={(e) => setNum2(e.target.value)}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+          <button 
+            onClick={handleAddition}
+            disabled={loading}
+            className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-gray-400 text-white font-semibold py-3 px-4 rounded-lg transition duration-200"
+          >
+            {loading ? "Calculating..." : "Calculate"}
+          </button>
+        </div>
+
+        {error && (
+          <div className="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+            {error}
+          </div>
+        )}
+
+        {result && (
+          <div className="mt-6 p-4 bg-green-100 border border-green-400 rounded-lg">
+            <h2 className="text-xl font-semibold text-green-800 text-center">
+              Result: {result.num1} + {result.num2} = {result.result}
+            </h2>
+          </div>
+        )}
       </div>
-
-      {error && (
-        <div>
-          {error}
-        </div>
-      )}
-
-      {result && (
-        <div>
-          <h2>
-            Result: {result.num1} + {result.num2} = {result.result}
-          </h2>
-        </div>
-      )}
     </div>
   );
 }
