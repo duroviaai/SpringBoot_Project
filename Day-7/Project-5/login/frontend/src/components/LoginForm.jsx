@@ -1,20 +1,13 @@
 import React, { useState } from 'react';
 
 const LoginForm = ({ onLoginSuccess, onSwitchToRegister, onLogin }) => {
-  const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-  });
+  const [formData, setFormData] = useState({ username: '', password: '' });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    // Clear error when user starts typing
+    setFormData(prev => ({ ...prev, [name]: value }));
     if (error) setError('');
   };
 
@@ -41,9 +34,7 @@ const LoginForm = ({ onLoginSuccess, onSwitchToRegister, onLogin }) => {
     <div className="bg-white py-8 px-6 shadow-xl rounded-lg sm:px-10">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="text-center">
-          <h2 className="mt-4 text-3xl font-extrabold text-gray-900">
-            Sign In
-          </h2> 
+          <h2 className="mt-4 text-3xl font-extrabold text-gray-900">Sign In</h2> 
         </div>
       </div>
 
@@ -58,9 +49,7 @@ const LoginForm = ({ onLoginSuccess, onSwitchToRegister, onLogin }) => {
           )}
 
           <div>
-            <label htmlFor="username" className="block text-sm font-medium text-gray-700">
-              Username
-            </label>
+            <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
             <div className="mt-1">
               <input
                 id="username"
@@ -76,9 +65,7 @@ const LoginForm = ({ onLoginSuccess, onSwitchToRegister, onLogin }) => {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-              Password
-            </label>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
             <div className="mt-1">
               <input
                 id="password"
@@ -99,13 +86,7 @@ const LoginForm = ({ onLoginSuccess, onSwitchToRegister, onLogin }) => {
               disabled={loading}
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
             >
-              {loading ? (
-                <div className="flex items-center">
-                  Loading...
-                </div>
-              ) : (
-                'Sign in'
-              )}
+              {loading ? 'Loading...' : 'Sign in'}
             </button>
           </div>
 

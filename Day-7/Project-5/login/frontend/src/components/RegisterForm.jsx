@@ -1,36 +1,24 @@
 import React, { useState } from 'react';
 
 const RegisterForm = ({ onRegisterSuccess, onSwitchToLogin, onRegister }) => {
-  const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-    confirmPassword: '',
-  });
+  const [formData, setFormData] = useState({ username: '', password: '', confirmPassword: '' });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [validationErrors, setValidationErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData(prev => ({ ...prev, [name]: value }));
     
-    // Clear errors when user starts typing
     if (error) setError('');
     if (validationErrors[name]) {
-      setValidationErrors(prev => ({
-        ...prev,
-        [name]: ''
-      }));
+      setValidationErrors(prev => ({ ...prev, [name]: '' }));
     }
   };
 
   const validateForm = () => {
     const errors = {};
 
-    // Username validation
     if (!formData.username.trim()) {
       errors.username = 'Username is required';
     } else if (formData.username.length < 3) {
@@ -39,14 +27,12 @@ const RegisterForm = ({ onRegisterSuccess, onSwitchToLogin, onRegister }) => {
       errors.username = 'Username must be less than 20 characters';
     }
 
-    // Password validation
     if (!formData.password) {
       errors.password = 'Password is required';
     } else if (formData.password.length < 6) {
       errors.password = 'Password must be at least 6 characters';
     }
 
-    // Confirm password validation
     if (!formData.confirmPassword) {
       errors.confirmPassword = 'Please confirm your password';
     } else if (formData.password !== formData.confirmPassword) {
@@ -60,9 +46,7 @@ const RegisterForm = ({ onRegisterSuccess, onSwitchToLogin, onRegister }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
     setLoading(true);
     setError('');
@@ -87,9 +71,7 @@ const RegisterForm = ({ onRegisterSuccess, onSwitchToLogin, onRegister }) => {
     <div className="bg-white py-8 px-6 shadow-xl rounded-lg sm:px-10">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="text-center">
-          <h2 className="mt-4 text-3xl font-extrabold text-gray-900">
-            Create Account
-          </h2>
+          <h2 className="mt-4 text-3xl font-extrabold text-gray-900">Create Account</h2>
         </div>
       </div>
 
@@ -104,9 +86,7 @@ const RegisterForm = ({ onRegisterSuccess, onSwitchToLogin, onRegister }) => {
           )}
 
           <div>
-            <label htmlFor="username" className="block text-sm font-medium text-gray-700">
-              Username
-            </label>
+            <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
             <div className="mt-1">
               <input
                 id="username"
@@ -127,9 +107,7 @@ const RegisterForm = ({ onRegisterSuccess, onSwitchToLogin, onRegister }) => {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-              Password
-            </label>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
             <div className="mt-1">
               <input
                 id="password"
@@ -150,9 +128,7 @@ const RegisterForm = ({ onRegisterSuccess, onSwitchToLogin, onRegister }) => {
           </div>
 
           <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-              Confirm Password
-            </label>
+            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">Confirm Password</label>
             <div className="mt-1">
               <input
                 id="confirmPassword"
@@ -178,13 +154,7 @@ const RegisterForm = ({ onRegisterSuccess, onSwitchToLogin, onRegister }) => {
               disabled={loading}
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
             >
-              {loading ? (
-                <div className="flex items-center">
-                  Creating account...
-                </div>
-              ) : (
-                'Create account'
-              )}
+              {loading ? 'Creating account...' : 'Create account'}
             </button>
           </div>
 
