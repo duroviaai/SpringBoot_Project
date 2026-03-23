@@ -5,24 +5,32 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .page1-container {
   min-height: 100vh;
-  background: linear-gradient(180deg, #e6e6f0 0%, #d8d8e8 30%, #c8c8dc 70%, #b8b8d0 100%);
+  background: linear-gradient(
+    180deg,
+    #e6e6f0 0%,
+    #d8d8e8 30%,
+    #c8c8dc 70%,
+    #b8b8d0 100%
+  );
   position: relative;
   padding: 40px 20px;
 }
 
 .page1-container::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   height: 50%;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><linearGradient id="cloud1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23a8a8c8" stop-opacity="0.3"/><stop offset="100%" stop-color="%23b8b8d4" stop-opacity="0.5"/></linearGradient><linearGradient id="cloud2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23b8b8d4" stop-opacity="0.4"/><stop offset="100%" stop-color="%23c8c8dc" stop-opacity="0.6"/></linearGradient></defs><path d="M0,400 C200,300 400,350 600,280 C800,210 1000,260 1200,220 L1200,600 L0,600 Z" fill="url(%23cloud1)"/><path d="M0,450 C300,350 500,400 700,330 C900,260 1100,310 1200,270 L1200,600 L0,600 Z" fill="url(%23cloud2)"/><path d="M0,500 C150,420 350,460 550,400 C750,340 950,380 1200,350 L1200,600 L0,600 Z" fill="%23a8a8c8" opacity="0.2"/></svg>') no-repeat center bottom;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><linearGradient id="cloud1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23a8a8c8" stop-opacity="0.3"/><stop offset="100%" stop-color="%23b8b8d4" stop-opacity="0.5"/></linearGradient><linearGradient id="cloud2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23b8b8d4" stop-opacity="0.4"/><stop offset="100%" stop-color="%23c8c8dc" stop-opacity="0.6"/></linearGradient></defs><path d="M0,400 C200,300 400,350 600,280 C800,210 1000,260 1200,220 L1200,600 L0,600 Z" fill="url(%23cloud1)"/><path d="M0,450 C300,350 500,400 700,330 C900,260 1100,310 1200,270 L1200,600 L0,600 Z" fill="url(%23cloud2)"/><path d="M0,500 C150,420 350,460 550,400 C750,340 950,380 1200,350 L1200,600 L0,600 Z" fill="%23a8a8c8" opacity="0.2"/></svg>')
+    no-repeat center bottom;
   background-size: cover;
   z-index: 1;
 }
@@ -118,9 +126,14 @@ body {
 }
 
 .plane-icon {
-  font-size: 48px;
+  width: 76px;
+  height: 76px;
   margin: 0 8px;
   vertical-align: middle;
+  object-fit: contain;
+  display: inline-block;
+  position: relative;
+  top: -2px;
 }
 
 .hero-subtitle {
@@ -225,6 +238,7 @@ body {
   background: #fafafa;
   transition: all 0.2s ease;
   height: 56px;
+  text-align: center;
 }
 
 .from-input input {
@@ -314,7 +328,7 @@ body {
 }
 
 .lufthansa {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 .lot {
@@ -340,47 +354,47 @@ body {
   .page1-container {
     padding: 20px 10px;
   }
-  
+
   .header {
     flex-direction: column;
     gap: 20px;
     padding: 24px;
   }
-  
+
   .nav {
     gap: 24px;
   }
-  
+
   .hero {
     padding: 60px 24px 40px;
   }
-  
+
   .hero-title {
     font-size: 36px;
   }
-  
+
   .hero-subtitle {
     font-size: 36px;
   }
-  
+
   .location-inputs {
     flex-direction: column;
     gap: 16px;
   }
-  
+
   .from-input input,
   .to-input input {
     border-radius: 12px;
     border: 2px solid #f0f0f0;
   }
-  
+
   .swap-btn {
     position: static;
     transform: none;
     align-self: center;
     margin: -8px 0;
   }
-  
+
   .airlines {
     flex-wrap: wrap;
     gap: 32px;

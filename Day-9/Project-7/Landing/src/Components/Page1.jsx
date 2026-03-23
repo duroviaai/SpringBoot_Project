@@ -1,5 +1,6 @@
 import React from 'react';
 import './Page1.css';
+import flightIcon from '../assets/flight.jpg';
 
 // Simple i18n constants
 const labels = {
@@ -30,7 +31,7 @@ const Page1 = () => {
         <main className="hero">
           <div className="hero-content">
             <h1 className="hero-title">
-              Find the best <span className="plane-icon">✈️</span> flights faster
+              Find the best <img src={flightIcon} alt="flight" className="plane-icon" /> flights faster
             </h1>
             <p className="hero-subtitle">Travel smarter</p>
           </div>
