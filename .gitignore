@@ -1,11 +1,35 @@
+# Maven
+target/
+*.jar
+*.war
+*.class
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.classpath
+*.project
+.settings/
+
+# Spring Boot
+*.log
+application-local.properties
+application-local.yml
+
+# Environment / Secrets
+.env
+*.pem
+*.key
+
+# Node / React (Day-6, Day-7, Day-8, Day-9)
 node_modules/
-.pnpm-store/
-.pnpm-debug.log*
 dist/
 build/
-*.log
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.next/
+npm-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
